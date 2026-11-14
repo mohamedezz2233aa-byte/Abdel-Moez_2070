@@ -41,7 +41,7 @@ Mr Abdel Moez  Mr Abdel Moez  Mr Abdel Moez</div><div class="wrap">
 </div>
 
 <div id="pageStudent" class="hidden"><div class="topbar"><b style="color:#ffd700">🎓 قسم الطالب</b><button class="btn bGold" onclick="goHome()">⬅ العودة للواجهة</button></div><h1>Mr Abdel Moez</h1><p class="motiv">🎓 قسم الطالب - الامتحانات المنشورة فقط - 4 أسئلة في الصفحة بخط كبير</p>
-<div class="card"><b style="font-size:15px">🎓 انت في سنة كام؟ - اختار صفك - هتشوف أسئلة صفك بس</b><br><div style="display:flex;gap:6px;margin-top:6px"><button id="sg1" style="flex:1;padding:8px 4px;font-size:14px;font-weight:900;border-radius:8px;border:2px solid transparent;background:#00c853;color:#fff;cursor:pointer" onclick="setStudentGrade('أولى ثانوي')">1️⃣ أولى</button><button id="sg2" style="flex:1;padding:8px 4px;font-size:14px;font-weight:900;border-radius:8px;border:2px solid transparent;background:#0082fb;color:#fff;cursor:pointer" onclick="setStudentGrade('ثانية ثانوي')">2️⃣ ثانية</button><button id="sg3" style="flex:1;padding:8px 4px;font-size:14px;font-weight:900;border-radius:8px;border:3px solid #071a33;background:#ffd700;color:#071a33;cursor:pointer" onclick="setStudentGrade('ثالثة ثانوي')">3️⃣ ثالثة</button></div><div id="studentGradeMsg" style="margin-top:6px;font-weight:900;font-size:13px">اختار صفك الأول - هتشوف أسئلة صفك بس</div></div><div class="card"><b>الامتحانات المتاحة - <span id="studentGradeLabel">اختار صفك</span></b><div id="studentExams"></div><button class="btn bWhite" onclick="goHome()">⬅ رجوع</button></div>
+<div class="card"><b>الامتحانات المتاحة</b><div id="studentExams"></div><button class="btn bWhite" onclick="goHome()">⬅ رجوع</button></div>
 <div class="card hidden" id="studentExamBox"><button class="btn bWhite" onclick="goHome()">⬅ العودة للواجهة</button><div id="studentExamHead"></div><div style="font-size:32px;text-align:center;color:red" id="studentTimer"></div><div id="studentExamQ"></div><button class="btn bGold" id="btnStudentNext">التالي ➡</button><div id="studentResult"></div><div id="studentAfterSubmit" class="hidden"><button class="btn bGreen" onclick="sendWhatsApp()">📤 إرسال نتيجتي للمعلم واتساب - تلقائي</button><button class="btn bWhite" onclick="copyResult()">📋 نسخ كود النتيجة للمعلم</button><p class="small">كود النتيجة: <b id="resultCode"></b> - ابعته للمعلم لو الواتساب مش متاح، والمعلم يدخله في قسم النتائج الحية</p></div><button class="btn bWhite" onclick="exitStudentExam()">خروج</button></div><div class="bottombar"><button class="btn bGold" onclick="goHome()">⬅ العودة للواجهة الرئيسية</button></div></div>
 
 <div id="pageTeacherLogin" class="hidden"><div class="topbar"><b style="color:#ffd700">👨‍🏫 دخول معلم</b><button class="btn bGold" onclick="goHome()">⬅ العودة للواجهة</button></div><h1>Mr Abdel Moez</h1><div class="card"><b>دخول المعلم</b><br>كلمة السر:<input type="password" id="teacherPass" placeholder="كلمة السر"><button class="btn bGold" onclick="checkTeacher()">دخول</button><button class="btn bWhite" onclick="goHome()">رجوع</button><div id="loginMsg"></div></div><div class="bottombar"><button class="btn bGold" onclick="goHome()">⬅ العودة للواجهة الرئيسية</button></div></div>
@@ -123,7 +123,7 @@ Mr Abdel Moez  Mr Abdel Moez  Mr Abdel Moez</div><div class="wrap">
 <textarea id="importCode" placeholder="الصق كود نتيجة الطالب هنا لو الواتساب مش متاح..."></textarea><button class="btn bGold" onclick="importCode()">➕ إضافة نتيجة من الكود</button>
 <div id="liveResults"></div><button class="btn bWhite" onclick="exportResultsCsv()">📊 تصدير النتائج CSV</button><button class="btn bWhite" onclick="clearResults()">مسح النتائج</button></div>
 
-<div class="card hidden" id="tabBank"><b>📚 بنك الأسئلة</b><br><button class="btn bWhite" style="padding:6px;font-size:13px" onclick="fixBankGrades()">🗑️ امسح أسئلة البنك اللي بدون صف (القديمة اللي اتحفظت غلط - تالتة بالغلط)</button><br><select id="filterGrade"><option value="">كل الصفوف</option><option>أولى ثانوي</option><option>ثانية ثانوي</option><option>ثالثة ثانوي</option></select><select id="filterType"><option value="">كل الأنواع</option><option>جرامر</option><option>قطعة</option><option>ترجمة</option></select><input id="bankSearch" placeholder="ابحث في البنك..." oninput="renderBank()"><label><input type="checkbox" id="hideAnswers" onchange="renderBank()" style="width:auto"> إخفاء الإجابات</label><div id="bankList"></div><button class="btn bGold" onclick="publishAll()">📢 نشر الكل للطلاب</button><button class="btn bWhite" onclick="unpublishAll()">🔒 إلغاء نشر الكل</button></div>
+<div class="card hidden" id="tabBank"><b>📚 بنك الأسئلة</b><br><button class="btn bWhite" style="padding:6px;font-size:13px" onclick="fixBankGrades()">🗑️ امسح أسئلة البنك اللي بدون صف</button><br><select id="filterGrade"><option value="">كل الصفوف</option><option>أولى ثانوي</option><option>ثانية ثانوي</option><option>ثالثة ثانوي</option></select><select id="filterType"><option value="">كل الأنواع</option><option>جرامر</option><option>قطعة</option><option>ترجمة</option></select><input id="bankSearch" placeholder="ابحث في البنك..." oninput="renderBank()"><label><input type="checkbox" id="hideAnswers" onchange="renderBank()" style="width:auto"> إخفاء الإجابات</label><div id="bankList"></div><button class="btn bGold" onclick="publishAll()">📢 نشر الكل للطلاب</button><button class="btn bWhite" onclick="unpublishAll()">🔒 إلغاء نشر الكل</button></div>
 
 <div class="card hidden" id="tabPassages"><b>📖 القطع - MCQ</b><textarea id="passageText" placeholder="الصق نص القطعة هنا..."></textarea><input id="passageTitle" placeholder="عنوان القطعة"><button class="btn bGold" onclick="addPassage()">➕ إضافة قطعة</button><div id="passageList"></div><div style="border:2px solid #ffd700;padding:10px;border-radius:10px;margin-top:10px"><b>📖 القطعة الذكية المتدرجة</b><br><button class="btn bWhite" onclick="showGradedPassage('easy')">سهلة</button><button class="btn bWhite" onclick="showGradedPassage('mid')">متوسطة</button><button class="btn bWhite" onclick="showGradedPassage('hard')">صعبة</button><div id="gradedPassage"></div></div></div>
 
@@ -176,7 +176,7 @@ function loadAll(){ try{ var s=localStorage.getItem('moez_platform_v2'); if(s){ 
 {q:'Choose the correct translation: العلم نور',o:['Knowledge is light','Knowledge is dark','Light is knowledge','Knowledge is night'],c:0,reason:'ترجمة صحيحة',conf:95},
 {q:'Choose the correct translation: من جد وجد',o:['Who works hard, finds success','Who sleeps, finds success','Who plays, finds success','Who eats, finds success'],c:0,reason:'ترجمة صحيحة',conf:95},
 {q:'Choose the correct translation: الصبر مفتاح الفرج',o:['Patience is the key to relief','Patience is the key to sadness','Patience is the key to darkness','Patience is the key to failure'],c:0,reason:'ترجمة صحيحة',conf:95}]}
-]; BANK=EXAMS[0].questions.map(function(q){ return {q:q.q,o:q.o.slice(),c:q.c,reason:q.reason,conf:q.conf,grade:'ثالثة ثانوي'}; }); } saveAll(); }
+]; BANK=EXAMS[0].questions.slice(); } saveAll(); }
 function saveAll(){ try{ localStorage.setItem('moez_platform_v2', JSON.stringify({exams:EXAMS,bank:BANK,passages:PASSAGES,trans:TRANS,results:RESULTS,pass:TEACHER_PASS,wa:document.getElementById('waNumber')?document.getElementById('waNumber').value:''})); }catch(e){} try{ if(window._bc) window._bc.postMessage({type:'ping'}); }catch(e){} }
 function goHome(){ hideAll(); document.getElementById('pageHome').className=''; }
 function hideAll(){ var ids=['pageHome','pageStudent','pageTeacherLogin','pageTeacher']; for(var i=0;i<ids.length;i++) document.getElementById(ids[i]).className='hidden'; }
@@ -196,12 +196,13 @@ function ai(q,o){ var qq=' '+q.toLowerCase()+' '; var oo=[]; for(var i=0;i<o.len
 }
 function parseBlock(block){ block=block.trim(); if(block.length<8) return null; block=block.replace(/^\s*\d{1,3}\s*[\.\)\-]\s*/,''); var q=block, opts=[]; var par=block.match(/\(([^()]{6,240})\)/); if(par && par[1].split(/–|—|\s-\s|\/|;|\|/).length>=2){ var parts=par[1].split(/–|—|\s-\s|\/|;|\|/); for(var i=0;i<parts.length;i++) opts.push(parts[i].trim()); q=block.replace(par[0],' .......... '); return {q:q.trim(),o:opts}; } var lines=block.split('\n'); var vert=[],vq=[]; for(var li=0;li<lines.length;li++){ var ln=lines[li].trim(); var vm=ln.match(/^(?:\(?\s*([A-Da-d])\s*\)?)\s*[\)\.\-:\]]\s+(.+)$/); if(vm && ln.length<140) vert.push(vm[2].trim()); else if(vert.length===0) vq.push(ln); } if(vert.length>=2) return {q:vq.join(' ').trim(),o:vert}; var markers=[],re=/(?:^|[\s\t])(?:\(\s*([A-Da-d])\s*\)|([A-Da-d])\s*[\)\.\-:\]]\s*)/g,mm; while((mm=re.exec(block))!==null){ var L=(mm[1]||mm[2]||'').toUpperCase(); if(L>='A'&&L<='D') markers.push({idx:mm.index,len:mm[0].length,letter:L}); } var clean=[],seen={}; for(var k=0;k<markers.length;k++) if(!seen[markers[k].letter]){seen[markers[k].letter]=1;clean.push(markers[k]);} clean.sort(function(a,b){return a.idx-b.idx;}); if(clean.length>=2){ q=block.substring(0,clean[0].idx).trim(); for(var k2=0;k2<clean.length;k2++){ var s=clean[k2].idx+clean[k2].len; var e=(k2+1<clean.length)?clean[k2+1].idx:block.length; opts.push(block.substring(s,e).replace(/\s+/g,' ').trim()); } return {q:q,o:opts}; } return {q:block,o:[]}; }
 var FACTORY_GRADE='ثالثة ثانوي'; function getFactoryGrade(){ return window.FACTORY_GRADE||'ثالثة ثانوي'; } function setFactoryGrade(g){ FACTORY_GRADE=g; var m=document.getElementById('factoryGradeMsg'); if(m) m.innerHTML='المختار دلوقتي: <b>'+g+'</b> - الأسئلة دي هتروح لـ '+g; var gn=document.getElementById('gradeName'); if(gn) gn.value=g; var ne=document.getElementById('newExamGrade'); if(ne) ne.value=g; var b1=document.getElementById('fg1'), b2=document.getElementById('fg2'), b3=document.getElementById('fg3'); if(b1) b1.style.border=(g==='أولى ثانوي'?'3px solid #071a33':'2px solid transparent'); if(b2) b2.style.border=(g==='ثانية ثانوي'?'3px solid #071a33':'2px solid transparent'); if(b3) b3.style.border=(g==='ثالثة ثانوي'?'3px solid #071a33':'2px solid transparent'); }
-function organize(){ var txt=document.getElementById('paste').value||''; if(txt.trim().length<5){ alert('الصق الأسئلة أولا'); return; } txt=txt.replace(/\r/g,'').replace(/(\d{1,3}\s*[\.\)\-]\s*)\t+(?=\d{1,3}\s*[\.\)\-])/g,'$1\n'); var blocks=txt.split(/\n\s*(?=\d{1,3}\s*[\.\)\-])/); if(blocks.length<2) blocks=[txt]; QS=[]; for(var bi=0;bi<blocks.length;bi++){ var pr=parseBlock(blocks[bi]); if(!pr||pr.o.length<2) continue; while(pr.o.length<4) pr.o.push('---'); pr.o=pr.o.slice(0,4); var sol=ai(pr.q,pr.o); var pick=sol.pick<0?0:sol.pick; QS.push({q:pr.q.replace(/\s+/g,' ').trim(),o:pr.o,c:pick,conf:sol.conf,reason:sol.reason,grade:getFactoryGrade()}); } if(!QS.length){ document.getElementById('msg').innerHTML='لم أتعرف على أي سؤال'; return; } document.getElementById('msg').innerHTML='✅ تم تنظيم '+QS.length+' سؤال عمودي'; document.getElementById('factoryExtras').className=''; document.getElementById('wordCount').textContent='الأسئلة المنظمة الحالية: '+QS.length+' سؤالاً'; renderPreview('student'); }
+function goStudentWithGrade(g){ try{ if(typeof setStudentGrade==='function') setStudentGrade(g); }catch(e){} try{ goStudent(); }catch(e){} }
+function organize(){ var txt=document.getElementById('paste').value||''; if(txt.trim().length<5){ alert('الصق الأسئلة أولا'); return; } txt=txt.replace(/\r/g,'').replace(/(\d{1,3}\s*[\.\)\-]\s*)\t+(?=\d{1,3}\s*[\.\)\-])/g,'$1\n'); var blocks=txt.split(/\n\s*(?=\d{1,3}\s*[\.\)\-])/); if(blocks.length<2) blocks=[txt]; QS=[]; for(var bi=0;bi<blocks.length;bi++){ var pr=parseBlock(blocks[bi]); if(!pr||pr.o.length<2) continue; while(pr.o.length<4) pr.o.push('---'); pr.o=pr.o.slice(0,4); var sol=ai(pr.q,pr.o); var pick=sol.pick<0?0:sol.pick; QS.push({q:pr.q.replace(/\s+/g,' ').trim(),o:pr.o,c:pick,conf:sol.conf,reason:sol.reason,grade:getFactoryGrade()}); } if(!QS.length){ document.getElementById('msg').innerHTML='لم أتعرف على أي سؤال'; return; } document.getElementById('msg').innerHTML='✅ تم تنظيم '+QS.length+' سؤال عمودي'; try{ var mb=document.getElementById('metaBox'); if(mb) mb.scrollIntoView({behavior:'smooth'}); }catch(e){} document.getElementById('factoryExtras').className=''; document.getElementById('wordCount').textContent='الأسئلة المنظمة الحالية: '+QS.length+' سؤالاً'; renderPreview('student'); }
 function renderPreview(mode){ var h=''; for(var i=0;i<QS.length;i++){ var q=QS[i]; h+='<div class=q><b>'+(i+1)+'. '+q.q+'</b> <span style="color:#888">['+q.conf+'%]</span><br>'; for(var j=0;j<q.o.length;j++){ var mark=''; if(mode==='teacher'&&j===q.c){ mark=' ✅'; h+='<label class=opt style="background:#d4edda"><input type="radio" name="q'+i+'" checked> '+['A','B','C','D'][j]+') '+q.o[j]+mark+'</label>'; } else h+='<label class=opt><input type="radio" name="q'+i+'"> '+['A','B','C','D'][j]+') '+q.o[j]+mark+'</label>'; } if(mode==='teacher') h+='<div>🤖 '+(q.reason && q.reason.length>120 ? q.reason.slice(0,120)+'...' : q.reason)+'</div><div style="background:#fff3cd;padding:8px;border-radius:8px;margin-top:6px"><b>✏️ تعديل المعلم - قسم مراجعة الأسئلة:</b><br>عدّل الإجابة الصحيحة: <select id="editAns'+i+'" style="width:auto;padding:8px"><option value="0" '+(q.c===0?'selected':'')+'>A</option><option value="1" '+(q.c===1?'selected':'')+'>B</option><option value="2" '+(q.c===2?'selected':'')+'>C</option><option value="3" '+(q.c===3?'selected':'')+'>D</option></select> <button onclick="teacherEditAnswer('+i+')">💾 حفظ تعديل الإجابة</button><br><span class="small">أو عدّل نص السؤال / الاختيارات:</span><br><input id="editQ'+i+'" value="'+q.q.replace(/"/g,'&quot;')+'" style="margin:4px 0"><input id="editO0_'+i+'" value="'+q.o[0].replace(/"/g,'&quot;')+'"><input id="editO1_'+i+'" value="'+q.o[1].replace(/"/g,'&quot;')+'"><input id="editO2_'+i+'" value="'+q.o[2].replace(/"/g,'&quot;')+'"><input id="editO3_'+i+'" value="'+q.o[3].replace(/"/g,'&quot;')+'"><button onclick="teacherEditFull('+i+')">✏️ حفظ تعديل السؤال كامل</button></div>'; h+='</div>'; } document.getElementById('preview').innerHTML=h; }
 function loadSample(){ document.getElementById('paste').value="1.He said that he ( will visit – would visit – is visiting – visited )his friend the following day.\n2. Ali ( wondered – said - said to – told ) his son had bought a car the day before.\n3. Ola told me that she ( would – will – had – had ) visit Tanta the following day.\n4.The teacher told his students that The Nile ( ran - had run - will run – runs )in Egypt.\n5. He (said – asked – wondered – wanted to know) he wouldn't be able to sleep until he had finished the homework.\n6.She said that she (want – wants – wanted – is wanting) to be a writer.\n7.She admitted that her brother (was helping – is helping – he is helping – he was helping) her with her homework that afternoon\n8.She said they (meet – are meeting – have been meeting – were meeting) them there the following Saturday\n9. She (asked – wondered – complained – ordered) that she had waited for more than an hour for her appointment.\n10.They promised that they (phone – would phone – will phone – phones) us as soon as they arrived.\n11. He admitted that he (arrives – has arrived – had arrived – will arrive) late the night before.\n12. She (exclaimed – refused – asked – explained) that she was hoping to come and see me the following week.\n13.He asked me if I knew that his sister (is – has been – had been – will be) ill.\n14. I admitted that I (don't have – am not having – didn't have – doesn't have) any plans.\n15. He denied (to be – had been – was – being) at the scene of the crime\n16. I explained that I (would have to – will have to – will – shall) ask my mother\n17. Ali (asked – wondered – promised – wanted) he would phone me that evening."; organize(); }
 function buildWord(mode){ var title=document.getElementById('examTitle').value||'Mr Abdel Moez - English Exam'; var grade=document.getElementById('gradeName').value||''; var h='<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{font-family:Arial;font-size:16pt} h1,h2{text-align:center} .q{margin:18px 0} .opt{margin:4px 0 4px 28px} .ans{color:green;font-weight:bold}</style></head><body><h1>'+title+'</h1><h2>Mr Abdel Moez</h2><p style="text-align:center">Grade: '+grade+' | Questions: '+QS.length+'</p><hr>'; for(var i=0;i<QS.length;i++){ var q=QS[i]; h+='<div class=q><b>'+(i+1)+'. '+q.q+'</b>'; for(var j=0;j<q.o.length;j++){ var mk=''; if((mode==='ans'||mode==='reason')&&j===q.c) mk=' <span class=ans>✓</span>'; h+='<div class=opt><b>'+['A','B','C','D'][j]+')</b> '+q.o[j]+mk+'</div>'; } if(mode==='reason') h+='<div class=ans>Answer: '+['A','B','C','D'][q.c]+' - '+q.reason+'</div>'; h+='</div>'; } if(mode==='ans'||mode==='reason'){ h+='<h3>Answer Key</h3>'; for(var k=0;k<QS.length;k++) h+='<span>'+(k+1)+'-'+['A','B','C','D'][QS[k].c]+' &nbsp; </span>'; } h+='</body></html>'; return h; }
 function downloadWord(mode){ if(!QS.length){ alert('نظّم الأسئلة الأول'); return; } var blob=new Blob(['\ufeff',buildWord(mode)],{type:'application/msword'}); var url=URL.createObjectURL(blob); var a=document.createElement('a'); a.href=url; a.download='Mr-Abdel-Moez-Exam-'+mode+'.doc'; document.body.appendChild(a); try{ a.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,view:window})); }catch(e){ a.click(); } setTimeout(function(){ URL.revokeObjectURL(url); try{document.body.removeChild(a);}catch(e){} },1500); document.getElementById('wordMsg').innerHTML='✅ تم تحويل '+QS.length+' سؤالاً إلى ملف Word - هتلاقي الملف في Downloads. لو كروم حظر، دوس Allow downloads فوق ودوس تاني.'; }
-function saveToBank(){ if(!QS.length){ alert('نظّم الأول'); return; } var g=getFactoryGrade(); var toSave=QS.map(function(q){ return {q:q.q,o:q.o.slice(),c:q.c,reason:q.reason,conf:q.conf,grade:q.grade||g}; }); BANK=BANK.concat(toSave); saveAll(); renderBank(); alert('اتحفظ '+QS.length+' سؤال في البنك'); }
+function saveToBank(){ if(!QS.length){ alert('نظّم الأول'); return; } BANK=BANK.concat(QS); saveAll(); renderBank(); alert('اتحفظ '+QS.length+' سؤال في البنك'); }
 function shuffleQS(){ for(var i=0;i<QS.length;i++){ var cor=QS[i].o[QS[i].c]; var arr=QS[i].o.slice(); for(var j=arr.length-1;j>0;j--){ var k=Math.floor(Math.random()*(j+1)); var tmp=arr[j]; arr[j]=arr[k]; arr[k]=tmp; } QS[i].o=arr; QS[i].c=arr.indexOf(cor); } renderPreview('student'); }
 function copyAll(){ var s=''; for(var i=0;i<QS.length;i++){ s+=(i+1)+'. '+QS[i].q+'\n'; for(var j=0;j<QS[i].o.length;j++) s+=['A','B','C','D'][j]+') '+QS[i].o[j]+'\n'; } try{ navigator.clipboard.writeText(s); alert('اتنسخ'); }catch(e){} }
 
@@ -209,11 +210,11 @@ function renderPreview(mode){ var h=''; for(var i=0;i<QS.length;i++){ var q=QS[i
 function loadSample(){ document.getElementById('paste').value="1.He said that he ( will visit – would visit – is visiting – visited )his friend the following day.\n2. Ali ( wondered – said - said to – told ) his son had bought a car the day before.\n3. Ola told me that she ( would – will – had – had ) visit Tanta the following day.\n4.The teacher told his students that The Nile ( ran - had run - will run – runs )in Egypt.\n5. He (said – asked – wondered – wanted to know) he wouldn't be able to sleep until he had finished the homework.\n6.She said that she (want – wants – wanted – is wanting) to be a writer.\n7.She admitted that her brother (was helping – is helping – he is helping – he was helping) her with her homework that afternoon\n8.She said they (meet – are meeting – have been meeting – were meeting) them there the following Saturday\n9. She (asked – wondered – complained – ordered) that she had waited for more than an hour for her appointment.\n10.They promised that they (phone – would phone – will phone – phones) us as soon as they arrived.\n11. He admitted that he (arrives – has arrived – had arrived – will arrive) late the night before.\n12. She (exclaimed – refused – asked – explained) that she was hoping to come and see me the following week.\n13.He asked me if I knew that his sister (is – has been – had been – will be) ill.\n14. I admitted that I (don't have – am not having – didn't have – doesn't have) any plans.\n15. He denied (to be – had been – was – being) at the scene of the crime\n16. I explained that I (would have to – will have to – will – shall) ask my mother\n17. Ali (asked – wondered – promised – wanted) he would phone me that evening."; organize(); }
 function buildWord(mode){ var title=document.getElementById('examTitle').value||'Mr Abdel Moez - English Exam'; var grade=document.getElementById('gradeName').value||''; var h='<!DOCTYPE html><html><head><meta charset="UTF-8"><style>body{font-family:Arial;font-size:16pt} h1,h2{text-align:center} .q{margin:18px 0} .opt{margin:4px 0 4px 28px} .ans{color:green;font-weight:bold}</style></head><body><h1>'+title+'</h1><h2>Mr Abdel Moez</h2><p style="text-align:center">Grade: '+grade+' | Questions: '+QS.length+'</p><hr>'; for(var i=0;i<QS.length;i++){ var q=QS[i]; h+='<div class=q><b>'+(i+1)+'. '+q.q+'</b>'; for(var j=0;j<q.o.length;j++){ var mk=''; if((mode==='ans'||mode==='reason')&&j===q.c) mk=' <span class=ans>✓</span>'; h+='<div class=opt><b>'+['A','B','C','D'][j]+')</b> '+q.o[j]+mk+'</div>'; } if(mode==='reason') h+='<div class=ans>Answer: '+['A','B','C','D'][q.c]+' - '+q.reason+'</div>'; h+='</div>'; } if(mode==='ans'||mode==='reason'){ h+='<h3>Answer Key</h3>'; for(var k=0;k<QS.length;k++) h+='<span>'+(k+1)+'-'+['A','B','C','D'][QS[k].c]+' &nbsp; </span>'; } h+='</body></html>'; return h; }
 function downloadWord(mode){ if(!QS.length){ alert('نظّم الأسئلة الأول'); return; } var blob=new Blob(['\ufeff',buildWord(mode)],{type:'application/msword'}); var url=URL.createObjectURL(blob); var a=document.createElement('a'); a.href=url; a.download='Mr-Abdel-Moez-Exam-'+mode+'.doc'; document.body.appendChild(a); try{ a.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,view:window})); }catch(e){ a.click(); } setTimeout(function(){ URL.revokeObjectURL(url); try{document.body.removeChild(a);}catch(e){} },1500); document.getElementById('wordMsg').innerHTML='✅ تم تحويل '+QS.length+' سؤالاً إلى ملف Word - هتلاقي الملف في Downloads.'; }
-function saveToBank(){ if(!QS.length){ alert('نظّم الأول'); return; } var g=getFactoryGrade(); var toSave=QS.map(function(q){ return {q:q.q,o:q.o.slice(),c:q.c,reason:q.reason,conf:q.conf,grade:q.grade||g}; }); BANK=BANK.concat(toSave); saveAll(); renderBank(); alert('اتحفظ '+QS.length+' سؤال في البنك'); }
+function saveToBank(){ if(!QS.length){ alert('نظّم الأول'); return; } BANK=BANK.concat(QS); saveAll(); renderBank(); alert('اتحفظ '+QS.length+' سؤال في البنك'); }
 function shuffleQS(){ for(var i=0;i<QS.length;i++){ var cor=QS[i].o[QS[i].c]; var arr=QS[i].o.slice(); for(var j=arr.length-1;j>0;j--){ var k=Math.floor(Math.random()*(j+1)); var tmp=arr[j]; arr[j]=arr[k]; arr[k]=tmp; } QS[i].o=arr; QS[i].c=arr.indexOf(cor); } renderPreview('student'); }
 function copyAll(){ var s=''; for(var i=0;i<QS.length;i++){ s+=(i+1)+'. '+QS[i].q+'\n'; for(var j=0;j<QS[i].o.length;j++) s+=['A','B','C','D'][j]+') '+QS[i].o[j]+'\n'; } try{ navigator.clipboard.writeText(s); alert('اتنسخ'); }catch(e){} }
-function fixBankGrades(){ var bad=0; for(var i=BANK.length-1;i>=0;i--){ if(!BANK[i].grade){ BANK.splice(i,1); bad++; } } saveAll(); renderBank(); alert('اتمسح '+bad+' سؤال بدون صف (اللي كانوا بيبانوا تالتة بالغلط) - دلوقتي احفظ أسئلة أولى من جديد بالملف الجديد - هتتحفظ أولى صح'); }
-function renderBank(){ var g=document.getElementById('filterGrade').value, ty=document.getElementById('filterType').value, sr=(document.getElementById('bankSearch').value||'').toLowerCase(), hide=document.getElementById('hideAnswers').checked; var h=''; for(var i=0;i<BANK.length;i++){ var q=BANK[i]; var qg=q.grade||'بدون صف - قديم'; if(g && qg!==g) continue; if(sr && q.q.toLowerCase().indexOf(sr)<0) continue; h+='<div class=q><b>'+(i+1)+'. '+q.q+'</b> <span class=badge>'+(q.grade||'بدون صف - قديم')+'</span><br>'; for(var j=0;j<q.o.length;j++){ var st=''; if(!hide&&j===q.c) st=' style="background:#d4edda"'; var mk=(!hide&&j===q.c)?' ✅':''; h+='<div class=opt'+st+'>'+['A','B','C','D'][j]+') '+q.o[j]+mk+'</div>'; } if(!hide) h+='<div>🤖 '+(q.reason && q.reason.length>120 ? q.reason.slice(0,120)+'...' : q.reason)+'</div>'; h+='<button onclick="teacherEditBank('+i+')">✏️ تعديل الإجابة / السؤال</button> <button onclick="deleteBank('+i+')">حذف</button></div>'; } document.getElementById('bankList').innerHTML=h||'البنك فاضي'; }
+function fixBankGrades(){ var bad=0; for(var i=BANK.length-1;i>=0;i--){ if(!BANK[i].grade){ BANK.splice(i,1); bad++; } } saveAll(); renderBank(); alert('اتمسح '+bad+' سؤال بدون صف'); }
+function renderBank(){ var g=document.getElementById('filterGrade').value, ty=document.getElementById('filterType').value, sr=(document.getElementById('bankSearch').value||'').toLowerCase(), hide=document.getElementById('hideAnswers').checked; var h=''; for(var i=0;i<BANK.length;i++){ var q=BANK[i]; if(sr && q.q.toLowerCase().indexOf(sr)<0) continue; h+='<div class=q><b>'+(i+1)+'. '+q.q+'</b><br>'; for(var j=0;j<q.o.length;j++){ var st=''; if(!hide&&j===q.c) st=' style="background:#d4edda"'; var mk=(!hide&&j===q.c)?' ✅':''; h+='<div class=opt'+st+'>'+['A','B','C','D'][j]+') '+q.o[j]+mk+'</div>'; } if(!hide) h+='<div>🤖 '+(q.reason && q.reason.length>120 ? q.reason.slice(0,120)+'...' : q.reason)+'</div>'; h+='<button onclick="teacherEditBank('+i+')">✏️ تعديل الإجابة / السؤال</button> <button onclick="deleteBank('+i+')">حذف</button></div>'; } document.getElementById('bankList').innerHTML=h||'البنك فاضي'; }
 function deleteBank(i){ if(confirm('حذف السؤال ده؟')){ BANK.splice(i,1); saveAll(); renderBank(); } }
 function publishAll(){ for(var i=0;i<EXAMS.length;i++) EXAMS[i].published=true; saveAll(); renderExams(); alert('تم نشر الكل للطلاب'); }
 function unpublishAll(){ for(var i=0;i<EXAMS.length;i++) EXAMS[i].published=false; saveAll(); renderExams(); }
@@ -261,12 +262,12 @@ function publishFactoryToStudent(){
  for(var k=EXAMS.length-1;k>=0;k--){ if(EXAMS[k].name===name) EXAMS.splice(k,1); }
  var exam={id:'factory_'+Date.now(),name:name,grade:grade,type:'جرامر',published:true,questions:QS.map(function(q){ return {q:q.q,o:q.o.slice(),c:q.c,reason:q.reason,conf:q.conf,grade:grade}; })};
  EXAMS.push(exam); saveAll(); renderExams(); renderStudent();
- document.getElementById('publishFactoryMsg').innerHTML='✅ اتنشر '+QS.length+' سؤال للطالب بنفس التنظيم - روح قسم الطالب هتلاقي امتحان: <b>'+name+'</b> - السؤال فوق والاختيارات عمودي A B C D';
+ document.getElementById('publishFactoryMsg').innerHTML='✅ اتنشر '+QS.length+' سؤال لـ <b>'+grade+'</b> - منشور ✅ - امتحان: <b>'+name+'</b><br><button class="btn bGold" style="padding:10px;font-size:16px" onclick="goStudentWithGrade(\''+grade+'\')">👀 الخطوة اللي بعدها: روح لقسم الطالب وشوفه منشور</button>';
  document.getElementById('publishFactoryMsg').scrollIntoView();
 }
 function previewAsStudent(){
  if(!QS.length){ alert('نظّم الأسئلة الأول'); return; }
- var h=''; for(var i=0;i<QS.length;i++){ var q=QS[i]; h+='<div class=q><b>'+(i+1)+'. '+q.q+'</b> <span class=badge>'+(q.grade||'بدون صف - قديم')+'</span><br>'; for(var j=0;j<q.o.length;j++){ h+='<label class=opt><input type="radio" name="prevStu'+i+'"> '+['A','B','C','D'][j]+') '+q.o[j]+'</label>'; } h+='</div>'; }
+ var h=''; for(var i=0;i<QS.length;i++){ var q=QS[i]; h+='<div class=q><b>'+(i+1)+'. '+q.q+'</b><br>'; for(var j=0;j<q.o.length;j++){ h+='<label class=opt><input type="radio" name="prevStu'+i+'"> '+['A','B','C','D'][j]+') '+q.o[j]+'</label>'; } h+='</div>'; }
  document.getElementById('studentPreviewList').innerHTML=h;
  document.getElementById('studentPreviewBox').className='';
  document.getElementById('studentPreviewBox').scrollIntoView();
@@ -323,7 +324,7 @@ function makeReadyExamAndLink(){
  var name=document.getElementById('examTitle').value||('امتحان - '+new Date().toLocaleDateString('ar-EG'));
  var grade=getFactoryGrade();
  var exam={id:'e'+Date.now(),name:name,grade:grade,type:'جرامر',published:true,questions:QS.map(function(q){ return {q:q.q,o:q.o.slice(),c:q.c,reason:q.reason,conf:q.conf,grade:grade}; })};
- EXAMS.push(exam); BANK=BANK.concat(exam.questions.map(function(q){ return {q:q.q,o:q.o.slice(),c:q.c,reason:q.reason,conf:q.conf,grade:q.grade||exam.grade}; })); saveAll(); renderExams(); renderBank();
+ EXAMS.push(exam); BANK=BANK.concat(exam.questions); saveAll(); renderExams(); renderBank();
  READY_LINK=makeExamLink(exam);
  document.getElementById('readyLinkText').value=READY_LINK;
  document.getElementById('readyLinkBox').className='';
@@ -389,14 +390,14 @@ function goldMakeRealLink(){
 }
 
 function goldPublishOnline(){
- goldMakeStudentFile(); alert('✅ نزل ملف الامتحان للطالب - ابعته واتساب للطلبة زي ما هو ملف HTML - الطالب يفتحه ويحل ويرسل النتيجة واتساب'); return;
+ goldMakeStudentFile();
  if(!QS.length && !BANK.length){ alert('المصنع فاضي - نظم أسئلة الأول'); return; }
- if(QS.length){ EXAMS.push({id:'e'+Date.now(),name:'امتحان - '+new Date().toLocaleDateString(),grade:getFactoryGrade(),type:'جرامر',published:true,questions:QS.map(function(q){return {q:q.q,o:q.o.slice(),c:q.c,reason:q.reason,conf:q.conf,grade:getFactoryGrade()};})}); }
- else { EXAMS.push({id:'e'+Date.now(),name:'امتحان من البنك - '+new Date().toLocaleDateString(),grade:getFactoryGrade(),type:'جرامر',published:true,questions:BANK.map(function(q){return {q:q.q,o:q.o.slice(),c:q.c,reason:q.reason,conf:q.conf,grade:q.grade||getFactoryGrade()};})}); }
- saveAll(); try{ renderExams(); }catch(e){}
- var out=document.getElementById('goldAdditionsOut'); if(out) out.innerHTML='<b style="color:green">✅ اتنشر للطلاب أونلاين - روح تبويب 📝 الامتحانات → دوس 🔗 توليد رابط أونلاين للطلبة → ابعته واتساب</b>';
- alert('✅ اتنشر الامتحان للطلاب أونلاين - دلوقتي دوس توليد رابط من تبويب الامتحانات وابعته واتساب');
- showTab('tabExams', document.querySelector('.tabs button:nth-child(11)'));
+ var _g=getFactoryGrade(); var _name='امتحان - '+new Date().toLocaleDateString(); var _qs=QS.length? QS : BANK;
+ var _exam={id:'e'+Date.now(),name:_name,grade:_g,type:'جرامر',published:true,questions:_qs.map(function(q){ return {q:q.q,o:q.o.slice(),c:q.c,reason:q.reason,conf:q.conf,grade:q.grade||_g}; })};
+ EXAMS.push(_exam); saveAll(); try{ renderExams(); }catch(e){} try{ renderStudent(); }catch(e){}
+ var _out=document.getElementById('goldAdditionsOut'); if(_out) _out.innerHTML='<b style="color:green">✅ اتنشر للطلاب - '+_qs.length+' سؤال لـ '+_g+' - منشور ✅</b><br><button class="btn bGold" onclick="goStudentWithGrade(\''+_g+'\')">👀 روح لقسم الطالب وشوفه منشور</button>';
+ alert('✅ اتنشر الامتحان للطلاب - '+_qs.length+' سؤال لـ '+_g+' - روح قسم الطالب هتلاقيه منشور'); try{ goStudentWithGrade(_g); }catch(e){}
+
 }
 function goldSaveWork(){
  try{ saveAll(); }catch(e){}
@@ -430,7 +431,7 @@ function importResult(){ var txt=document.getElementById('importResult').value; 
 function exportResultsCsv(){ var s='Name,Exam,Score,Time,Answers\n'; for(var i=0;i<RESULTS.length;i++) s+='"'+RESULTS[i].name+'","'+RESULTS[i].exam+'","'+RESULTS[i].score+'","'+(RESULTS[i].time||'')+'","'+(RESULTS[i].answers||'')+'"\n'; var blob=new Blob(['\ufeff',s],{type:'text/csv'}); var url=URL.createObjectURL(blob); var a=document.createElement('a'); a.href=url; a.download='results.csv'; document.body.appendChild(a); try{ a.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,view:window})); }catch(e){ a.click(); } }
 // ===== الطالب =====
 var curExam=null, curIdx=0, curScore=0, curAnswers=[], stuTimer=null, stuLeft=0, stuName='', curResultCode='';
-var STUDENT_GRADE=''; function setStudentGrade(g){ STUDENT_GRADE=g; var m=document.getElementById('studentGradeMsg'); if(m) m.innerHTML='✅ انت دلوقتي في: <b>'+g+'</b> - دي أسئلة صفك بس'; var l=document.getElementById('studentGradeLabel'); if(l) l.textContent=g; var s1=document.getElementById('sg1'), s2=document.getElementById('sg2'), s3=document.getElementById('sg3'); if(s1) s1.style.border=(g==='أولى ثانوي'?'3px solid #071a33':'2px solid transparent'); if(s2) s2.style.border=(g==='ثانية ثانوي'?'3px solid #071a33':'2px solid transparent'); if(s3) s3.style.border=(g==='ثالثة ثانوي'?'3px solid #071a33':'2px solid transparent'); renderStudent(); } function renderStudent(){ var h=''; var pub=EXAMS.filter(function(e){return e.published && (!STUDENT_GRADE || e.grade===STUDENT_GRADE);}); if(!STUDENT_GRADE) h='👆 اختار صفك فوق الأول - هتشوف أسئلة صفك بس'; else if(!pub.length) h='مفيش امتحانات منشورة لـ '+STUDENT_GRADE+' دلوقتي - اسأل المعلم'; for(var i=0;i<pub.length;i++){ var e=pub[i]; h+='<div class=q><b>'+e.name+'</b> <span class=badge>'+e.grade+'</span> <span class=badge>'+e.type+'</span><br>عدد الأسئلة: '+e.questions.length+'<br><button class="btn bGold" onclick="startStudentExam(\''+e.id+'\')">▶ ابدأ الامتحان</button></div>'; } document.getElementById('studentExams').innerHTML=h; }
+function renderStudent(){ var h=''; var pub=EXAMS.filter(function(e){return e.published;}); if(!pub.length) h='مفيش امتحانات منشورة دلوقتي'; for(var i=0;i<pub.length;i++){ var e=pub[i]; h+='<div class=q><b>'+e.name+'</b> <span class=badge>'+e.grade+'</span> <span class=badge>'+e.type+'</span><br>عدد الأسئلة: '+e.questions.length+'<br><button class="btn bGold" onclick="startStudentExam(\''+e.id+'\')">▶ ابدأ الامتحان</button></div>'; } document.getElementById('studentExams').innerHTML=h; }
 function startStudentExam(id){ for(var i=0;i<EXAMS.length;i++) if(EXAMS[i].id===id) curExam=EXAMS[i]; if(!curExam) return; stuName=prompt('اكتب اسمك يا بطل:')||'طالب'; curIdx=0; curScore=0; curAnswers=[]; stuPage=0; window.stuLocked={}; document.getElementById('studentExamBox').className='card'; document.getElementById('studentAfterSubmit').className='hidden'; document.getElementById('studentExamHead').innerHTML='<b>'+curExam.name+'</b> - '+stuName; document.getElementById('studentResult').innerHTML=''; showStudentQ(); }
 var stuPage=0, stuPageSize=4;
 var SUCCESS_EXPRS=['⭐ Excellent!','🎉 Excellent!','👏 Excellent!','💪 Excellent!','🔥 Excellent!','🏆 Excellent!'];
@@ -470,48 +471,97 @@ function pasteFromMeta(){
   try{
     var box=document.getElementById('metaPasteBox');
     var sol=box ? box.value : '';
+    var goPublish=function(){ try{ var pe=document.getElementById('factoryExtras'); if(pe) pe.scrollIntoView({behavior:'smooth'}); }catch(e){} };
+    var applyOne=function(qi, li, reasonTxt){
+      if(qi<0 || qi>=QS.length || li<0 || li>3) return false;
+      QS[qi].c=li; QS[qi].conf=100; QS[qi].reason=reasonTxt || ('حل Meta AI - الصح: '+['A','B','C','D'][li]+') '+QS[qi].o[li]);
+      return true;
+    };
     var doFix=function(s){
       if(!s || !s.trim()){ alert('المربع فاضي - انسخ حل Meta الاول (Ctrl+C) - وبعدين دوس 2 تاني - هو هياخده لوحده'); return; }
-      // FIX: تقبل كل الصيغ: 66-D / 66. D / 66: D / 66) D / 66 - D - شرح
+      // تحويل الارقام العربية ٦٩ -> 69
+      var arabicDigits='٠١٢٣٤٥٦٧٨٩';
+      s=s.replace(/[٠-٩]/g, function(ch){ return String(arabicDigits.indexOf(ch)); });
+      // تحويل حروف عربي أ ب ج د -> A B C D لو ميتا كتب بالعربي
+      // (نسيبها للمرحلة 3 - نترجم أ->A, ب->B, ج->C, د->D لما تكون بعد كلمة اجابة/صح)
+      var fixedK=0;
+      // المرحلة 1: 66-D / 66. D / 66: D / 66) D
       var keyRe=/(\d{1,3})\s*[\.\)\-–:\)]\s*([A-Da-d])\b/g;
       var keyMatches=[]; var km; while((km=keyRe.exec(s))!==null){ keyMatches.push(km); }
       if(keyMatches.length>=1){
-        var fixedK=0;
         var firstNum=parseInt(keyMatches[0][1],10);
         for(var ki=0; ki<keyMatches.length; ki++){
           var num=parseInt(keyMatches[ki][1],10); var let=keyMatches[ki][2].toUpperCase();
-          var li=['A','B','C','D'].indexOf(let);
-          // FIX: لو ميتا بيقول 66 و 70 وانت عندك سؤالين بس - 66 = اول سؤال عندك - 70 = تاني سؤال عندك
-          var qi=-1;
+          var li=['A','B','C','D'].indexOf(let); var qi=-1;
           if(num-1>=0 && num-1<QS.length) qi=num-1;
           else if(firstNum>QS.length) qi=ki;
           else if(num-firstNum>=0 && num-firstNum<QS.length) qi=num-firstNum;
           else qi=ki;
-          if(qi>=0 && qi<QS.length && li>=0){ QS[qi].c=li; QS[qi].conf=100; QS[qi].reason='حل Meta AI - الصح: '+let+') '+QS[qi].o[li]; fixedK++; }
+          if(applyOne(qi, li)) fixedK++;
         }
-        if(fixedK>0){ try{ renderPreview('teacher'); }catch(e){} var msgK=document.getElementById('msg'); if(msgK) msgK.innerHTML='تم تظبيط '+fixedK+' اجابة من Meta - كل واحدة في سطرها - الثقة 100%'; alert('اتظبطت الاجابات من Meta! '+fixedK+' سؤال اتظبط - الثقة 100% - راجع المعاينة - وبعدين دوس نشر.'); return; }
+        if(fixedK>0){ try{ renderPreview('teacher'); }catch(e){} alert('اتظبطت الاجابات من Meta! '+fixedK+' سؤال اتظبط - الثقة 100% - هروح بيك للنشر'); goPublish(); return; }
       }
-      // FIX: صيغة تانية: 66 - D - شرح / 66. D) شرح - لو اللي فوق منفعش - جرب تقسيم السطور
-      var lines=s.split(/\n/); var fixedL=0; var firstL=-1;
+      // المرحلة 2: ميتا بيكتب "السؤال 69: الإجابة D" أو "69 - الإجابة الصحيحة هي D" أو "69: D" بس الرقم والحرف مش جنب بعض
+      var lines=s.split(/\n/);
+      var orderIdx=0; var fixed2=0; var firstL=-1;
       for(var li2=0; li2<lines.length; li2++){
-        var m2=lines[li2].match(/^\s*(\d{1,3})\s*[\.\)\-–:\)]\s*([A-Da-d])\b/);
-        if(!m2) continue;
-        if(firstL===-1) firstL=parseInt(m2[1],10);
-        var n2=parseInt(m2[1],10); var let2=m2[2].toUpperCase(); var lidx=['A','B','C','D'].indexOf(let2);
-        var qj=-1; if(n2-1>=0 && n2-1<QS.length) qj=n2-1; else if(firstL>QS.length) qj=fixedL; else if(n2-firstL>=0 && n2-firstL<QS.length) qj=n2-firstL; else qj=fixedL;
-        if(qj>=0 && qj<QS.length && lidx>=0){ QS[qj].c=lidx; QS[qj].conf=100; QS[qj].reason='حل Meta AI - الصح: '+let2+') '+QS[qj].o[lidx]; fixedL++; }
+        var line=lines[li2];
+        if(!line || !line.trim()) continue;
+        var numM=line.match(/(\d{1,3})/);
+        // دور على الحرف بعد كلمات: الإجابة / الصح / الاختيار / الجواب / answer / correct
+        var letM=line.match(/(?:الإجابة|الاجابة|الصح|الاختيار|الجواب|answer|correct|الإختيار)[^A-Da-dأبجد]{0,40}([A-Da-dأبجد])/);
+        var let2=-1; var letCh='';
+        if(letM){
+          letCh=letM[1];
+          var mapAr={'أ':0,'ا':0,'ب':1,'ج':2,'د':3,'A':0,'B':1,'C':2,'D':3,'a':0,'b':1,'c':2,'d':3};
+          if(mapAr[letCh]!==undefined) let2=mapAr[letCh];
+          else if(mapAr[letCh.toUpperCase()]!==undefined) let2=mapAr[letCh.toUpperCase()];
+        } else {
+          // لو مفيش كلمة إجابة - دور على حرف لوحده في السطر: "D)" أو "D -" أو "D." أو "(D)"
+          var solo=line.match(/[\(\[]\s*([A-Da-d])\s*[\)\]]/) || line.match(/^\s*([A-Da-d])\s*[\.\)\-:]/) || line.match(/\s([A-Da-d])\s*[\.\)\-:]/);
+          if(solo) let2=['A','B','C','D'].indexOf(solo[1].toUpperCase());
+        }
+        if(let2<0) continue;
+        var qj=-1;
+        if(numM){
+          var n2=parseInt(numM[1],10);
+          if(firstL===-1) firstL=n2;
+          if(n2-1>=0 && n2-1<QS.length) qj=n2-1;
+          else if(firstL>QS.length) qj=orderIdx;
+          else if(n2-firstL>=0 && n2-firstL<QS.length) qj=n2-firstL;
+          else qj=orderIdx;
+        } else { qj=orderIdx; }
+        if(applyOne(qj, let2)) { fixed2++; orderIdx++; }
       }
-      if(fixedL>0){ try{ renderPreview('teacher'); }catch(e){} alert('اتظبطت الاجابات من Meta! '+fixedL+' سؤال اتظبط - الثقة 100%'); return; }
+      if(fixed2>0){ try{ renderPreview('teacher'); }catch(e){} alert('اتظبطت الاجابات من Meta! '+fixed2+' سؤال اتظبط - الثقة 100% - هروح بيك للنشر'); goPublish(); return; }
+      // المرحلة 3: ميتا كاتب حروف بس ورا بعض: "D, B" أو كل حرف في سطر لوحده - خد الحروف بالترتيب
+      var allLets=[]; var lm; var letRe=/\b([A-Da-d])\b/g;
+      // نستبعد حروف من جوه الشرح: خد أول حرف A-D في كل سطر بس لو السطر قصير (أقل من 15 حرف) أو بيبدأ بحرف
+      for(var si=0; si<lines.length; si++){
+        var l2=lines[si].trim();
+        if(!l2) continue;
+        var m3=l2.match(/^\s*([A-Da-d])\b/);
+        if(m3) allLets.push(['A','B','C','D'].indexOf(m3[1].toUpperCase()));
+      }
+      if(allLets.length===QS.length && QS.length>0){
+        for(var ai=0; ai<allLets.length; ai++) applyOne(ai, allLets[ai]);
+        try{ renderPreview('teacher'); }catch(e){} alert('اتظبطت الاجابات من Meta! '+allLets.length+' سؤال اتظبط - الثقة 100% - هروح بيك للنشر'); goPublish(); return;
+      }
+      // المرحلة 4: بلوكات كاملة - زي ما كان
       var blocks=s.split(/\n\s*(?=\d{1,3}\s*[\.\)\-])/);
       if(blocks.length<2) blocks=[s];
       var fixed=0, added=0;
       for(var bi=0; bi<blocks.length; bi++){ var pr=null; try{ pr=parseBlock(blocks[bi]); }catch(e){ continue; } if(!pr || !pr.o || pr.o.length<2) continue; while(pr.o.length<4) pr.o.push('---'); pr.o=pr.o.slice(0,4); var nq=pr.q.replace(/\s+/g,' ').trim(); var found=-1; for(var q2=0; q2<QS.length; q2++){ if(QS[q2].q.replace(/\s+/g,' ').trim()===nq){ found=q2; break; } } if(found===-1 && QS.length===blocks.length) found=bi; if(found>=0){ QS[found].o=pr.o.slice(); QS[found].c=0; QS[found].conf=100; QS[found].reason='حل Meta AI - الصح في مكانه'; fixed++; } else { QS.push({q:nq, o:pr.o.slice(), c:0, conf:100, reason:'حل Meta AI - الصح في مكانه', grade:getFactoryGrade()}); added++; } }
-      if(fixed===0 && added===0){ alert('معرفتش اقرا حل Meta - اتاكد ان الصيغة: 66-D + شرح في سطر لوحده'); return; }
-      try{ renderPreview('teacher'); }catch(e){} var msg2=document.getElementById('msg'); if(msg2) msg2.innerHTML='تم تظبيط '+fixed+' اجابة من Meta - واضافة '+added+' سؤال جديد - الثقة 100%'; alert('اتظبطت الاجابات من Meta! '+fixed+' سؤال اتظبط - '+added+' سؤال جديد - الثقة 100% - راجع المعاينة - وبعدين دوس نشر.');
+      if(fixed===0 && added===0){
+        var preview=s.slice(0,250);
+        alert('معرفتش اقرا حل Meta - اللي اتلصق كان:\n\n'+preview+'\n\n--- انسخ حل Meta كله والصقهولي في الشات هنا - وانا هقولك الصيغة الصح - أو الصق بالصيغة دي: 69-D في سطر لوحده');
+        return;
+      }
+      try{ renderPreview('teacher'); }catch(e){} alert('اتظبطت الاجابات من Meta! '+fixed+' سؤال اتظبط - '+added+' سؤال جديد - الثقة 100% - هروح بيك للنشر'); goPublish();
     };
     if(sol && sol.trim()){ doFix(sol); return; }
-    if(navigator.clipboard && navigator.clipboard.readText){ navigator.clipboard.readText().then(function(txt){ if(txt && txt.trim()){ if(box) box.value=txt; doFix(txt); } else { var p2=prompt('الصق حل Meta AI هنا (مثال: 66-D):'); if(p2) doFix(p2); } }).catch(function(){ var p3=prompt('الصق حل Meta AI هنا (مثال: 66-D):'); if(p3) doFix(p3); }); return; }
-    var pp=prompt('الصق حل Meta AI هنا (مثال: 66-D):'); if(pp) doFix(pp);
+    if(navigator.clipboard && navigator.clipboard.readText){ navigator.clipboard.readText().then(function(txt){ if(txt && txt.trim()){ if(box) box.value=txt; doFix(txt); } else { var p2=prompt('الصق حل Meta AI هنا (مثال: 69-D):'); if(p2) doFix(p2); } }).catch(function(){ var p3=prompt('الصق حل Meta AI هنا (مثال: 69-D):'); if(p3) doFix(p3); }); return; }
+    var pp=prompt('الصق حل Meta AI هنا (مثال: 69-D):'); if(pp) doFix(pp);
   }catch(e){ alert('مشكلة في اللصق: '+e.message); }
 }
 
